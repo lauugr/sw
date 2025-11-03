@@ -41,6 +41,8 @@ mappings:
     po:
       - [a, schema:PostalAddress]
       - [schema:streetAddress, $(streetAddress)]
+      - [owl:sameAs, $(linkedAddressStreet)~iri]
+
       - p: schema:postalCode
         o: {value: $(postalCode), datatype: xsd:int}
       - [schema:addressLocality, $(city)]
@@ -68,6 +70,7 @@ mappings:
     po:
       - [a, schema:City]
       - [schema:name, $(city)]
+      - [owl:sameAs, $(wikidataCity)~iri]
       - [my:containedInRegion, ex:region/$(autonomousCommunity)~iri]
       - [my:containedInNation, ex:country/$(country)~iri]
 
@@ -77,6 +80,7 @@ mappings:
     s: ex:region/$(autonomousCommunity)
     po:
       - [a, my:AutonomousCommunity]
+      - [owl:sameAs, $(wikidataAutonomousCommunity)~iri]
       - [schema:name, $(autonomousCommunity)]
       - [my:containedInCountry, ex:country/$(country)~iri]
   Country:
@@ -85,5 +89,6 @@ mappings:
     s: ex:country/$(country)
     po:
       - [a, schema:Country]
+      - [owl:sameAs, $(wikidataCountry)~iri]
       - [schema:name, $(country)]
       
